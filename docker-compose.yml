@@ -1,6 +1,6 @@
 version: "3.1"
 services:
-    db:
+    database:
         container_name: mysql_database
         image: mysql
         ports:
@@ -22,16 +22,16 @@ services:
         volumes:
             - ./www:/var/www/html
         links:
-            - db
+            - database
         networks:
             - default
     phpmyadmin:
         container_name: phpmyadmin
         depends_on:
-            - db
+            - database
         image: phpmyadmin
         links:
-            - db:db
+            - database:db
         ports:
             - 8000:80
         environment:

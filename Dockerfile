@@ -4,9 +4,8 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # Install the PHP PDO extension
 RUN docker-php-ext-install pdo
-
-# Alternative DB driver options (uncomment to include)
-# RUN docker-php-ext-install pdo_mysql
+RUN docker-php-ext-install pdo_mysql
+RUN docker-php-ext-install mysqli
 
 
 # Update the package lists and install required dependencies
